@@ -1,4 +1,26 @@
-//-- Importing necesary files
-//
-// Kube framework
-@import url(../../../assets/lib/kube/dist/css/kube.css);
+/*-------------
+Custom Styles
+--------------*/
+$size: 200px;
+
+@mixin vertical($height: $size){
+	height: $height;
+	margin-bottom: 30px;
+	div{height: 100%;}
+}
+
+div.media-grid {
+	div.vertical-col-1{ @include vertical(); }
+	div.vertical-col-2{ @include vertical(2*$size); }
+	div.vertical-col-3{ @include vertical(3*$size); }
+	div.vertical-col-4{ @include vertical(4*$size); }
+	div.vertical-col-5{ @include vertical(5*$size); }
+	div.vertical-col-6{ @include vertical(6*$size); }
+
+	div.vertical-col-1-half{ @include vertical(1*$size + $size/2); }
+	div.vertical-col-2-half{ @include vertical(2*$size + $size/2); }
+	div.vertical-col-3-half{ @include vertical(3*$size + $size/2); }
+	div.vertical-col-4-half{ @include vertical(4*$size + $size/2); }
+	div.vertical-col-5-half{ @include vertical(5*$size + $size/2); }
+	div.vertical-col-6-half{ @include vertical(6*$size + $size/2); }
+}

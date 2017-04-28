@@ -3,13 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { Ng2PageTransitionModule } from "ng2-page-transition";
 
 //-- Importing Pages
-import { InicioComponent } from './pages/inicio/inicio.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AdminDashboardComponent } from './pages/users/admin/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [{
 	path: '',
 	children: [
 		{path: '', redirectTo: 'inicio', pathMatch: 'full'},
-		{path: 'inicio', component: InicioComponent},
+    {path: 'inicio', component: HomeComponent},
+    {path: 'admin', children:[
+      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+      {path: 'dashboard', component: AdminDashboardComponent}
+    ]},
+    {path: 'coordinador', component: HomeComponent},
+    {path: 'disenador', component: HomeComponent},
+    {path: 'responsable', component: HomeComponent},
+    {path: 'tecnico', component: HomeComponent},
 		{path:'**', redirectTo: 'inicio'}
 	]
 }];
